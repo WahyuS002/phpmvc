@@ -1,13 +1,13 @@
 <?php
 
-class Home extends Controller{
+class Page extends Controller{
 
     public function index(){
 
-        $data["judul"] = 'Halaman Utama';
-        
+        $data["judul"] = 'Page';
+
         $this->view('templates/header', $data);
-        $this->view('home/index');
+        $this->view('about/page', $data);
         $this->view('templates/footer');
 
     }
