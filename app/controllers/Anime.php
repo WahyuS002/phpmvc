@@ -13,4 +13,15 @@ class Anime extends Controller{
 
     }
 
+    public function detail($id){
+
+        $data["judul"] = "Detail Anime";
+        $data["anime"] = $this->model('Anime_model')->getAnimeById($id);
+
+        $this->view('templates/header', $data);
+        $this->view('anime/detail', $data);
+        $this->view('templates/footer');
+
+    }
+
 }

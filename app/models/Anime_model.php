@@ -1,26 +1,26 @@
 <?php
 
 class Anime_model{
-    private $dbh; //database handler (penampung)
-    private $stmt; //statement misal SELECT * bla bla bla
+    private $db;
 
     public function __construct(){
 
-        $dsn = "mysql:host=localhost;dbname=phpdasar";
-
-        try{    
-            $this->dbh = new PDO($dsn, 'root', '');
-        }catch(PDOException $e){
-            die($e->getMessage());
-        }
+        $this->db = new Database();
 
     }
 
     public function getAnime(){
 
-        $this->stmt = $this->dbh->prepare("SELECT * FROM myanimelist");
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query('SELECT * FROM myanimelist');
+        return $this->db->resultSet();
+
+    }
+
+    public function getAnimeById($id){
+
+        $this->db->query('SELECT * FROM myanimelist WHERE id=:id');
+        $this->db->bind('id',$id);
+        return $this->db->singleResult();
 
     }
 
