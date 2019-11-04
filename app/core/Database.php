@@ -72,5 +72,8 @@ class Database{
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
     
+    public function row_affect(){
+        return $this->stmt->rowCount();
+    }
 
 }

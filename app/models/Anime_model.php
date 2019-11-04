@@ -24,4 +24,25 @@ class Anime_model{
 
     }
 
+    public function tambahAnimeBaru($data){
+
+        $query = "INSERT INTO myanimelist 
+                    VALUES
+                    ('', :title, :score, :description, :icon, :category, :aired, :episodes)";
+
+        $this->db->query($query);
+        $this->db->bind('title', $data["title"]);
+        $this->db->bind('score', $data["score"]);
+        $this->db->bind('description', $data["description"]);
+        $this->db->bind('icon', $data["icon"]);
+        $this->db->bind('category', $data["category"]);
+        $this->db->bind('aired', $data["aired"]);
+        $this->db->bind('episodes', $data["episodes"]);
+
+        $this->db->execute();
+
+        return $this->db->row_affect();
+
+    }
+
 }

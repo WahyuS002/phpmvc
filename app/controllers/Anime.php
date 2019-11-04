@@ -24,4 +24,14 @@ class Anime extends Controller{
 
     }
 
+    
+    public function tambahAnime(){
+        
+        if( $this->model('Anime_model')->tambahAnimeBaru($_POST) > 0 ){
+            header('Location: ' . BASEURL . '/anime');
+            exit;
+        }
+
+    }
+
 }
