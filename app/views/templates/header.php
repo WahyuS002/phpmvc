@@ -21,6 +21,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="<?= BASEURL;?>">Home <span class="sr-only">(current)</span></a>
         </li>
+            <a class="nav-link" href="<?= BASEURL;?>/anime">Anime</a>
         <li class="nav-item">
             <a class="nav-link" href="<?= BASEURL;?>/about">About</a>
         </ul>
